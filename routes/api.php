@@ -5,7 +5,10 @@ $url = str_replace($baseUrl, '', $url);
 $method = $_SERVER['REQUEST_METHOD'];
 echo "url: ".$url." <br>";
 if ($url==='/api/events') {//  && $method === 'GET'
-    echo "api: get events";
+    echo "api: get events <br>";
+    /*$db=Database::getConnection();
+    $stmt=$db->query("SELECT * FROM events");
+    var_dump($stmt->fetchAll(PDO::FETCH_ASSOC));*/
     return;
 }
 if (preg_match('#^/api/events/(\d+)/register$#', $url, $matches)) {// && $method === 'POST'
