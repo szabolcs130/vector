@@ -5,9 +5,9 @@ class EventController{
     public function __construct($service){
         $this->service=$service;
     }
-    public function getEvents(){
+    public function getEventsFreeSpot(){
         header('Content-Type: application/json');
-        echo json_encode($this->service->getEvents());
+        echo json_encode($this->service->getEventsFreeSpot());
     }
 }
 ?>
