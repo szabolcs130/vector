@@ -12,9 +12,12 @@ if ($url==='/api/events' && $method === 'GET') {
     $controller->getEventsFreeSpot();
     return;
 }
-if (preg_match('#^/api/events/(\d+)/register$#', $url, $matches)) {// && $method === 'POST'
-    var_dump($matches);
+if (preg_match('#^/api/events/(\d+)/register$#', $url, $matches) && $method === 'POST') {
+    $controller=new EventController(new EventService(new EventRepository));
+    $controller->eventRegister($matches[1]);
     return;
 }
-echo "not found";
+http_response_code(404);
+header('Content-Type: application/json');
+echo json_encode(["error" => "Not Found"]);
 ?>

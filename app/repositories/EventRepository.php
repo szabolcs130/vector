@@ -16,5 +16,19 @@ class EventRepository{
         );
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    public function Eventregister($eventId,$userData){
+        $stmt = $this->db->prepare("
+            INSERT INTO attendees (event_id, email, name, ticket_code)
+            VALUES (?, ?, ?, ?)
+        ");
+        $ticket = bin2hex(random_bytes(5));
+        $stmt->execute([
+            $eventId,
+            $userData['email'],
+            $userData['name'],
+            $ticket
+        ]);
+        return $ticket;
+    }
 }
 ?>
