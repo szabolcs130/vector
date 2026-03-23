@@ -8,12 +8,12 @@ $baseUrl = '/vector/public';
 $url = str_replace($baseUrl, '', $url);
 $method = $_SERVER['REQUEST_METHOD'];
 if ($url==='/api/events' && $method === 'GET') {
-    $controller=new EventController(new EventService(new EventRepository));
+    $controller=new EventController(new EventService(new EventRepository()));
     $controller->getEventsFreeSpot();
     return;
 }
 if (preg_match('#^/api/events/(\d+)/register$#', $url, $matches) && $method === 'POST') {
-    $controller=new EventController(new EventService(new EventRepository));
+    $controller=new EventController(new EventService(new EventRepository()));
     $controller->eventRegister($matches[1]);
     return;
 }
