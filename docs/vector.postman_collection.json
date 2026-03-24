@@ -1,0 +1,287 @@
+{
+  "info": {
+    "_postman_id": "2aea965d-7db8-455c-948c-6dd76b6cb567",
+    "name": "vector",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "34098112"
+  },
+  "item": [
+    {
+      "name": "getEvents",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost/vector/public/api/events",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "path": [
+            "vector",
+            "public",
+            "api",
+            "events"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "registerTransaction",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Teszt{{$randomInt}}\",\r\n    \"email\": \"teszt{{$randomInt}}@mail.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost/vector/public/api/events/3/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "path": [
+            "vector",
+            "public",
+            "api",
+            "events",
+            "3",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "registerMissingNameAndEmail",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"\",\r\n    \"email\": \"\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost/vector/public/api/events/3/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "path": [
+            "vector",
+            "public",
+            "api",
+            "events",
+            "3",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "registerMissingName",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"\",\r\n    \"email\": \"teszt{{$randomInt}}@mail.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost/vector/public/api/events/3/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "path": [
+            "vector",
+            "public",
+            "api",
+            "events",
+            "3",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "registerMissingEmail",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Teszt{{$randomInt}}\",\r\n    \"email\": \"\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost/vector/public/api/events/3/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "path": [
+            "vector",
+            "public",
+            "api",
+            "events",
+            "3",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "registerNameToShort",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"T\",\r\n    \"email\": \"teszt{{$randomInt}}@mail.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost/vector/public/api/events/3/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "path": [
+            "vector",
+            "public",
+            "api",
+            "events",
+            "3",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "registerNameToLong",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"TesztTesztTesztTeszt{{$randomInt}}\",\r\n    \"email\": \"teszt{{$randomInt}}@mail.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost/vector/public/api/events/3/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "path": [
+            "vector",
+            "public",
+            "api",
+            "events",
+            "3",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "registerEventNotFound",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Teszt{{$randomInt}}\",\r\n    \"email\": \"teszt{{$randomInt}}@mail.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost/vector/public/api/events/4/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "path": [
+            "vector",
+            "public",
+            "api",
+            "events",
+            "4",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "registerInvalideEmail",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"Teszt{{$randomInt}}\",\r\n    \"email\": \"teszt{{$randomInt}}@.om\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost/vector/public/api/events/3/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "path": [
+            "vector",
+            "public",
+            "api",
+            "events",
+            "3",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
