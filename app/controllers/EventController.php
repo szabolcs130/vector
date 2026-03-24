@@ -13,7 +13,7 @@ class EventController{
     }
     public function eventRegister($eventId){
         header('Content-Type: application/json');
-        $userData = json_decode(file_get_contents("php://input"), true);
+        $userData = json_decode(file_get_contents("php://input"), true) ?? [];
         try {
             RequestValidator::validateRegister($userData);
             $ticket = $this->service->eventRegister($eventId,$userData);

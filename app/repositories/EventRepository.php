@@ -16,19 +16,36 @@ class EventRepository{
         );
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function Eventregister($eventId,$userData){
+    public function transactionBegin(){
+        $this->db->beginTransaction();
+    }
+    public function transactionCommit(){
+        $this->db->commit();
+    }
+    public function transactionRollBack(){
+        $this->db->rollBack();
+    }
+    public function getEventsForUpdate($eventId){
+        $stmt = $this->db->prepare("SELECT * FROM events WHERE id = ? FOR UPDATE");
+        $stmt->execute([$eventId]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    public function getAttendeesCount($eventId){
+        $stmt = $this->db->prepare("SELECT COUNT(*) FROM attendees WHERE event_id = ?");
+        $stmt->execute([$eventId]);
+        return $stmt->fetchColumn();
+    }
+    public function eventRegister($eventId,$userData,$ticket){
         $stmt = $this->db->prepare("
-            INSERT INTO attendees (event_id, email, name, ticket_code)
-            VALUES (?, ?, ?, ?)
+                INSERT INTO attendees (event_id, email, name, ticket_code)
+                VALUES (?, ?, ?, ?)
         ");
-        $ticket = bin2hex(random_bytes(5));
         $stmt->execute([
             $eventId,
-            $userData['email'],
             $userData['name'],
+            $userData['email'],
             $ticket
         ]);
-        return $ticket;
     }
 }
 ?>
