@@ -17,11 +17,16 @@ class EventService{
                 throw new Exception("Event already started or expired");
             }
             $count = $this->repository->getAttendeesCount($eventId);
+            $capacity=$event['capacity'];
             if ($count>=$event['capacity']) {
                 throw new Exception("Event is full");
             }
             $ticket = bin2hex(random_bytes(5));
             $this->repository->eventRegister($eventId,$userData,$ticket);
+            $count++;
+            if ($count>=$capacity) {
+                file_put_contents(__DIR__ . '/../../logs/app.log', date('Y-m-d H:i:s')." | [INFO] | Event {$eventId} full\n", FILE_APPEND);
+            }
             $this->repository->transactionCommit();
             return $ticket;
         } catch (Exception $e) {
